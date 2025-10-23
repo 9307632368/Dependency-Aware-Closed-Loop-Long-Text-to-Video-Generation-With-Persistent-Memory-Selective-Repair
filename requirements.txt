@@ -1,0 +1,16 @@
+requests
+pyyaml
+python-dotenv
+
+torch
+torchvision
+torchaudio
+
+diffusers
+transformers
+accelerate
+safetensors
+sentencepiece
+Pillow
+imageio
+imageio-ffmpeg
