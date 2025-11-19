@@ -1,0 +1,60 @@
+backend: hybrid
+
+device: cuda
+seed: 42
+
+hybrid:
+  enable_fallback: true
+  disable_fallback_on_oom: false
+  unload_after_each_scene: true
+  disable_scene1_fallback: true
+
+backends:
+  cogvideox:
+    backend: cogvideox
+    output_dir: outputs/generated/cogvideox
+    device: cuda
+
+    # same model family/style as your previous working folder
+    model_id: zai-org/CogVideoX-2b
+    torch_dtype: float16
+
+    # working-style generation settings
+    seed: 42
+    num_inference_steps: 24
+    guidance_scale: 6.0
+    num_frames: 16
+    fps: 8
+    height: 320
+    width: 512
+
+    # important memory settings from working project
+    enable_model_cpu_offload: false
+    enable_sequential_cpu_offload: true
+    enable_vae_slicing: true
+    enable_vae_tiling: true
+
+    # keep this false because current CogVideoX path is pure text-to-video
+    supports_image_conditioning: false
+
+  svd:
+    backend: svd
+    output_dir: outputs/generated/svd
+    device: cuda
+    model_id: stabilityai/stable-video-diffusion-img2vid
+    torch_dtype: float16
+
+    fps: 8
+    num_frames: 16
+    width: 512
+    height: 320
+    num_inference_steps: 12
+
+    enable_cpu_offload: true
+    enable_model_cpu_offload: false
+    enable_attention_slicing: true
+    enable_vae_slicing: true
+
+    decode_chunk_size: 4
+    motion_bucket_id: 127
+    noise_aug_strength: 0.02

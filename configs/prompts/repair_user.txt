@@ -1,0 +1,7 @@
+Schema type:
+{SCHEMA_TYPE}
+
+Broken content:
+{BROKEN_TEXT}
+
+Return fixed valid JSON only.

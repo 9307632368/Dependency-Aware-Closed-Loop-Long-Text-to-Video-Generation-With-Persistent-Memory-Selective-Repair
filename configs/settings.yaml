@@ -1,0 +1,79 @@
+  
+paths:
+  input_prompt_dir: data/prompts
+  output_dir: outputs/runs
+  backend_config: configs/generation/backend.yaml  
+  
+  
+output:
+  output_dir: outputs/full_pipeline
+  generation_output_dir: outputs/generation_pipeline
+  full_pipeline_output_dir: outputs/full_pipeline
+
+generation:
+  backend: hybrid
+  max_retries: 2
+  repair_after_retry: true
+  accept_score_threshold: 0.60
+  commit_score_threshold: 0.60
+  hard_fail_on_identity: false
+  hard_fail_on_location: false
+  stop_on_hard_failure: false
+
+retry:
+  max_retries: 2
+
+repair:
+  backend: svd
+  enable_explicit_repair_engine: true
+  dependency_aware_repair: true
+  repair_after_retry: true
+  strict_repair_mode: true
+
+continuity:
+  control_defaults:
+    identity_strength: 0.70
+    location_strength: 0.65
+    style_strength: 0.55
+    prop_strength: 0.55
+    transition_strength: 0.60
+    continuity_strength: 0.60
+    motion_strength: 0.50
+
+  scoring:
+    threshold_accept: 0.60
+    threshold_hard_fail: 0.35
+    weight_identity: 0.28
+    weight_location: 0.22
+    weight_props: 0.15
+    weight_style: 0.15
+    weight_transition: 0.20
+    hard_fail_on_identity: false
+    hard_fail_on_location: false
+
+  drift:
+    retry_threshold: 0.60
+    repair_threshold: 0.50
+    hard_fail_threshold: 0.35
+
+  memory:
+    max_recent_scenes: 20
+    max_reference_frames: 20
+
+  reference_bank:
+    max_character_refs_per_name: 3
+    max_prop_refs_per_name: 3
+
+stitching:
+  enabled: true
+  fps: 8  
+
+llm:
+  model: llama-3.3-70b-versatile
+  temperature: 0.1
+  top_p: 0.9
+  max_tokens: 2500
+
+pipeline:
+  verify_rounds: 2
+  dependency_retries: 2

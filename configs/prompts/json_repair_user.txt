@@ -1,0 +1,6 @@
+Malformed output:
+"""
+{BROKEN_OUTPUT}
+"""
+
+Return only the repaired valid JSON object.

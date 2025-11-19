@@ -1,0 +1,17 @@
+Original story:
+"""
+{PROMPT}
+"""
+
+Numbered sentences:
+{NUMBERED_SENTENCES}
+
+Total sentences: {NUM_SENTENCES}
+
+Validation errors:
+{VALIDATION_ERRORS}
+
+Proposed JSON:
+{PROPOSED_JSON}
+
+Return corrected JSON only.

@@ -1,0 +1,14 @@
+Scenes JSON:
+{SCENES_JSON}
+
+Task:
+For every consecutive pair (1->2, 2->3, ...), output:
+- from_scene_id
+- to_scene_id
+- dependent
+- dependency_type
+- evidence (short)
+- confidence
+
+Return JSON only in format:
+{ "dependencies": [ ... ] }

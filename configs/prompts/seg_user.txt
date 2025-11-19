@@ -1,0 +1,11 @@
+Original story:
+"""
+{PROMPT}
+"""
+
+Numbered sentences:
+{NUMBERED_SENTENCES}
+
+Total sentences: {NUM_SENTENCES}
+
+Return JSON only.
