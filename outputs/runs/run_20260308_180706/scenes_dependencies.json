@@ -1,0 +1,41 @@
+{
+  "scenes": [
+    {
+      "scene_id": 1,
+      "scene_text": "A young woman enters a railway station in the morning. She checks the departure board. A train arrives and she runs toward platform three. Inside the train, she sits by the window and opens an old letter.",
+      "start_char_index": 0,
+      "end_char_index": 204,
+      "characters": [
+        "young woman"
+      ],
+      "location": "railway station and train",
+      "time_hint": "morning",
+      "core_action": "entering station, checking departure board, boarding train, and opening letter",
+      "camera_style": "",
+      "new_scene_reason": ""
+    }
+  ],
+  "dependencies": [
+    {
+      "from_scene_id": 1,
+      "to_scene_id": 2,
+      "dependent": false,
+      "dependency_type": [],
+      "evidence": "no consecutive scene",
+      "confidence": 0.0
+    }
+  ],
+  "global_notes": {
+    "num_scenes": 1,
+    "warnings": [],
+    "coverage_check": {
+      "coverage_ok": true,
+      "coverage_info": {
+        "ordered": true,
+        "coverage_ratio": 1.0,
+        "missing_scene_matches": [],
+        "total_scenes": 1
+      }
+    }
+  }
+}

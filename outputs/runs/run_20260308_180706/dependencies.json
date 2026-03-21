@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    {
+      "from_scene_id": 1,
+      "to_scene_id": 2,
+      "dependent": false,
+      "dependency_type": [],
+      "evidence": "no consecutive scene",
+      "confidence": 0.0
+    }
+  ]
+}

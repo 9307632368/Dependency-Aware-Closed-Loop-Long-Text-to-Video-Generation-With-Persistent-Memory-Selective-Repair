@@ -1,0 +1,7 @@
+[2026-03-08 18:07:06] [INFO] Using prompt file: data/prompts/prompt_001.txt
+[2026-03-08 18:07:06] [INFO] Launching pipeline
+[2026-03-08 18:07:06] [INFO] Starting segmentation stage
+[2026-03-08 18:07:08] [INFO] Segmentation completed successfully
+[2026-03-08 18:07:08] [INFO] Starting dependency detection stage
+[2026-03-08 18:07:09] [INFO] Dependency detection completed successfully
+[2026-03-08 18:07:09] [INFO] Saved scenes.json, dependencies.json, scenes_dependencies.json
