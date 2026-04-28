@@ -1,150 +1,251 @@
 # Dependency-Aware Closed-Loop Long Text-to-Video Generation
 
----
+# Persistent Visual Memory and Selective Scene Repair
 
 ## Overview
 
-This project focuses on generating long videos from a single text prompt. Most existing text-to-video models work well only for short clips, but they struggle when the input becomes long and contains multiple scenes.
+This project focuses on long text-to-video generation, where a long input prompt is divided into multiple scenes and generated step by step. The main aim is to reduce common problems in long video generation such as identity drift, location mismatch, object inconsistency, and broken scene continuity.
 
-In such cases, problems like identity change, wrong locations, or broken continuity often appear. The goal of this work is to reduce these issues by introducing a structured generation pipeline instead of treating the entire prompt as a single input.
+Instead of generating the whole video at once, this project follows a structured pipeline. It first performs scene segmentation, then checks dependencies between scenes, generates video scene-wise, stores continuity information, and applies repair when inconsistencies are detected.
 
----
+## Main Idea
 
-## Idea
+Most text-to-video models work better for short clips. When the prompt becomes long and contains multiple connected scenes, the generated video may lose consistency. For example, the same character may look different in later scenes, or the location may change even when it should remain the same.
 
-Instead of generating the whole video at once, the prompt is first divided into smaller scenes. Then each scene is generated step by step while keeping track of what has already appeared in previous scenes.
-
-The important part is that scenes are not independent. Some scenes depend on earlier ones (for example, same character or same location), so this dependency is explicitly modeled.
-
----
-
-## Key Approach
-
-### Scene Segmentation
-
-The input prompt is divided into multiple smaller parts (scenes). This makes long prompts easier to handle.
-
-### Dependency Handling
-
-Each scene is checked to see whether it depends on previous scenes. This helps in maintaining consistency across the video.
-
-### Scene-wise Generation
-
-Instead of one large generation, each scene is generated separately using video diffusion models like:
-
-* Stable Video Diffusion
-* CogVideoX
-
-### Continuity Handling
-
-Important frames (keyframes) are taken from previous scenes and used as reference for the next scene. This helps in keeping:
-
-* same character
-* same background
-* same objects
-
-### Feedback and Correction
-
-After generating a scene, it is evaluated. If something goes wrong (like identity mismatch), only that scene is regenerated instead of the whole video.
-
----
+This project handles that problem using dependency-aware scene generation, memory-based continuity, and selective repair.
 
 ## System Flow
 
-Long Prompt
-→ Scene Segmentation
-→ Dependency Detection
-→ Scene Generation
-→ Consistency Check
-→ Selective Correction
-→ Final Video
+```text
+Long Text Prompt
+        ↓
+Scene Segmentation
+        ↓
+Dependency Detection
+        ↓
+Scene Packet Creation
+        ↓
+Scene-wise Video Generation
+        ↓
+Continuity Tracking
+        ↓
+Consistency Evaluation
+        ↓
+Selective Scene Repair
+        ↓
+Final Video Output
+```
 
----
+## Key Components
+
+### Scene Segmentation
+
+The long prompt is divided into smaller scene-level descriptions. This makes the generation process easier to control and evaluate.
+
+### Dependency Detection
+
+The system checks whether a scene depends on previous scenes. For example, a scene may depend on the same character, same location, same object, or previous event.
+
+### Scene-wise Generation
+
+Each scene is generated separately using video generation backends such as CogVideoX, SVD, dummy backend, or hybrid backend depending on the configuration.
+
+### Continuity Memory
+
+Important information from previous scenes is stored and reused. This includes character appearance, locations, props, style, and selected keyframes.
+
+### Consistency Scoring
+
+Generated scenes are checked for continuity problems such as identity drift, object loss, location mismatch, and story inconsistency.
+
+### Selective Repair
+
+If a scene has a problem, the repair module decides whether to regenerate the scene, improve the prompt, change references, or apply a repair policy.
 
 ## Project Structure
 
-```
+```text
 project/
 │── README.md
 │── requirements.txt
-│── main.py
-
+│── implementation workflow.txt
+│
 ├── configs/
 │   ├── settings.yaml
+│   │
+│   ├── diffusion/
+│   │   ├── model.yaml
+│   │   └── sampling.yaml
+│   │
+│   ├── evaluation/
+│   │   └── metrics.yaml
+│   │
 │   ├── generation/
 │   │   ├── backend.yaml
-│   │   ├── prompt_builder.yaml
-│   │   └── continuity.yaml
+│   │   ├── continuity.yaml
+│   │   └── prompt_builder.yaml
+│   │
 │   └── prompts/
-│       ├── seg_system.txt
-│       ├── seg_user.txt
 │       ├── dep_system.txt
 │       ├── dep_user.txt
-│       ├── verify_system.txt
-│       ├── verify_user.txt
 │       ├── json_repair_system.txt
 │       ├── json_repair_user.txt
-│       └── style_guide.txt
-
-├── src/
-│   ├── text/
-│   │   ├── segmentation.py
-│   │   └── dependency.py
-│   ├── llm/
-│   │   ├── prompts.py
-│   │   ├── client.py
-│   │   └── parsing.py
-│   ├── models/
-│   │   └── diffusion/
-│   │       ├── cogvideox_backend.py
-│   │       └── svd_backend.py
-│   ├── generation/
-│   │   ├── backend_router.py
-│   │   └── scene_generator.py
-│   ├── continuity/
-│   │   ├── keyframe_selector.py
-│   │   └── consistency_scorer.py
-│   └── evaluation/
-│       └── metrics.py
-
-├── scripts/
-│   ├── 00_create_dummy_videos.py
-│   └── 01_extract_clips.py
-
+│       ├── repair_system.txt
+│       ├── repair_user.txt
+│       ├── seg_system.txt
+│       ├── seg_user.txt
+│       ├── style_guide.txt
+│       ├── verify_system.txt
+│       └── verify_user.txt
+│
 ├── data/
-│   └── prompts/
-
-├── evaluation/
-│   └── metrics.yaml
-
-└── outputs/
-    └── runs/
+│   ├── metadata/
+│   │   ├── dependencies/
+│   │   ├── scenes/
+│   │   └── scene_packets/
+│   │
+│   ├── prompts/
+│   │   └── prompt_001.txt
+│   │
+│   ├── references/
+│   │   ├── characters/
+│   │   ├── keyframes/
+│   │   └── locations/
+│   │
+│   ├── video_clips/
+│   └── video_raw/
+│
+├── outputs/
+│   ├── figures/
+│   ├── generated/
+│   │   ├── cogvideox/
+│   │   └── svd/
+│   │
+│   └── runs/
+│
+├── scripts/
+│   ├── extract_clips.py
+│   ├── make_report_figs.py
+│   ├── run_batch_prompts.py
+│   ├── run_long_video.py
+│   ├── run_scene_generation.py
+│   ├── run_single_prompt.py
+│   └── __init__.py
+│
+└── src/
+    ├── main.py
+    ├── __init__.py
+    │
+    ├── continuity/
+    │   ├── consistency_scorer.py
+    │   ├── constraint_builder.py
+    │   ├── drift.py
+    │   ├── extract.py
+    │   ├── keyframe_selector.py
+    │   ├── manager.py
+    │   ├── memory.py
+    │   ├── package.py
+    │   ├── reference_bank.py
+    │   ├── state_tracker.py
+    │   ├── story_schema.py
+    │   └── __init__.py
+    │
+    ├── diffusion/
+    │   ├── conditioning.py
+    │   ├── model.py
+    │   ├── sampler.py
+    │   └── __init__.py
+    │
+    ├── eval/
+    │   ├── ablation_runner.py
+    │   ├── continuity_metrics.py
+    │   ├── metrics.py
+    │   ├── sanity.py
+    │   ├── story_metrics.py
+    │   └── __init__.py
+    │
+    ├── generation/
+    │   ├── prompt_builder.py
+    │   ├── retry.py
+    │   ├── scene_generator.py
+    │   ├── __init__.py
+    │   │
+    │   └── backend/
+    │       ├── base.py
+    │       ├── cogvideox_backend.py
+    │       ├── common.py
+    │       ├── dummy_backend.py
+    │       ├── factory.py
+    │       ├── hybrid_backend.py
+    │       ├── router.py
+    │       ├── svd_backend.py
+    │       └── __init__.py
+    │
+    ├── llm/
+    │   ├── client.py
+    │   ├── parsing.py
+    │   ├── prompts.py
+    │   ├── repair.py
+    │   └── __init__.py
+    │
+    ├── pipeline/
+    │   ├── run_full_pipeline.py
+    │   ├── run_generation_pipeline.py
+    │   ├── run_text_pipeline.py
+    │   └── __init__.py
+    │
+    ├── repair/
+    │   ├── failure_classifier.py
+    │   ├── repair_policy.py
+    │   ├── scene_repair.py
+    │   └── __init__.py
+    │
+    ├── text/
+    │   ├── dependency.py
+    │   ├── packet_builder.py
+    │   ├── postprocess.py
+    │   ├── scene_packet.py
+    │   ├── segmentation.py
+    │   ├── sentence_splitter.py
+    │   ├── sentence_utils.py
+    │   └── __init__.py
+    │
+    ├── utils/
+    │   ├── io.py
+    │   ├── logger.py
+    │   ├── paths.py
+    │   ├── seed.py
+    │   └── __init__.py
+    │
+    └── video/
+        ├── frames.py
+        ├── io.py
+        ├── stitch.py
+        ├── transitions.py
+        ├── vae.py
+        └── __init__.py
 ```
-
----
 
 ## How to Run
 
 ```bash
-git clone <your-repo-link>
-cd project
 pip install -r requirements.txt
-python main.py
+python -m src.main
 ```
 
----
+or run specific scripts:
 
-## Evaluation
+```bash
+python scripts/run_single_prompt.py
+python scripts/run_long_video.py
+python scripts/run_scene_generation.py
+```
 
-The generated videos are evaluated based on:
+## Notes
 
-* how well they match the text
-* whether the same character is maintained
-* whether scenes are consistent with each other
-
----
+The project is organized around scene-level generation, continuity memory, evaluation, and repair. The codebase separates text processing, generation, diffusion-related modules, continuity handling, repair logic, and video utilities so that each part can be improved independently.
 
 ## Author
 
-Rohan Pol
-M.Tech (AI & ML)
+Rohan Pol  
+M.Tech AI & ML
