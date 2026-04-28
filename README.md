@@ -246,7 +246,7 @@ python scripts/run_scene_generation.py
 The project is organized around scene-level generation, continuity memory, evaluation, and repair. The codebase separates text processing, generation, diffusion-related modules, continuity handling, repair logic, and video utilities so that each part can be improved independently.
 
 ## some samples
-[Watch Video](outputs/run_long_20260318_220725/stitched_video/stitched_video.mp4)
+[Watch Video](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4)
 
 ## Author
 
