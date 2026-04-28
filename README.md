@@ -246,9 +246,21 @@ python scripts/run_scene_generation.py
 The project is organized around scene-level generation, continuity memory, evaluation, and repair. The codebase separates text processing, generation, diffusion-related modules, continuity handling, repair logic, and video utilities so that each part can be improved independently.
 
 ## some samples
-[Watch Video](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4)
+Click the image below to watch the stitched generated video.
 
-## Author
+[![Watch Final Video](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png)](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4)
+
+### Scene-wise Preview
+
+| Scene | Preview | Video |
+|---|---|---|
+| Scene 01 | ![Scene 01](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png) | [Watch Scene 01](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/scene_001.mp4) |
+| Scene 02 | ![Scene 02](outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_004.png) | [Watch Scene 02](outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/scene_002.mp4) |
+| Scene 03 | ![Scene 03](outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_004.png) | [Watch Scene 03](outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/scene_003.mp4) |
+| Scene 04 | ![Scene 04](outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_004.png) | [Watch Scene 04](outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/scene_004.mp4) |
+
+
+## Authors
 
 Rohan Pol  
 M.Tech AI & ML
