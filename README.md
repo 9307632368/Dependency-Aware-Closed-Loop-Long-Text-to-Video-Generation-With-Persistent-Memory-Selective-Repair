@@ -1,6 +1,6 @@
-# Dependency-Aware Closed-Loop Long Text-to-Video Generation
+# Dependency-Aware Closed-Loop Long Text-to-Video Generation  Persistent Visual Memory and Selective Scene Repair
 
-# Persistent Visual Memory and Selective Scene Repair
+
 
 ## Overview
 
