@@ -1,0 +1,87 @@
+{
+  "dependent_on_previous": true,
+  "continuity_text": "Keep the same character identity for young woman, appearance: visual identity preserved for young woman, clothing: keep outfit and appearance stable. Preserve the same location/background: railway station, background: background consistent with railway station, lighting: lighting consistent with morning. Continue naturally from the previous action state: entering.",
+  "selected_references": {
+    "last_frame": {
+      "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_008.png",
+      "frame_type": "last_frame",
+      "scene_id": 1,
+      "score": 0.9,
+      "tags": [
+        "transition"
+      ]
+    },
+    "character_frame": {
+      "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+      "frame_type": "character_frame",
+      "scene_id": 1,
+      "score": 0.86,
+      "tags": [
+        "character"
+      ]
+    },
+    "location_frame": {
+      "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_000.png",
+      "frame_type": "location_frame",
+      "scene_id": 1,
+      "score": 0.84,
+      "tags": [
+        "location"
+      ]
+    },
+    "object_frame": null,
+    "best_keyframe": {
+      "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+      "frame_type": "keyframe",
+      "scene_id": 1,
+      "score": 0.88,
+      "tags": [
+        "general"
+      ]
+    }
+  },
+  "memory_snapshot": {
+    "characters": {
+      "young woman": {
+        "name": "young woman",
+        "appearance_text": "visual identity preserved for young woman",
+        "clothing_text": "keep outfit and appearance stable",
+        "identity_embedding_path": "",
+        "reference_frame_paths": [
+          "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png"
+        ]
+      }
+    },
+    "location": {
+      "name": "railway station",
+      "background_text": "background consistent with railway station",
+      "lighting_text": "lighting consistent with morning",
+      "tone_text": "",
+      "reference_frame_paths": [
+        "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_000.png"
+      ]
+    },
+    "objects": {},
+    "style": {
+      "style_text": "",
+      "camera_text": "",
+      "palette_text": ""
+    },
+    "action": {
+      "action_text": "entering",
+      "motion_text": "",
+      "emotional_state": ""
+    },
+    "history": [
+      {
+        "scene_id": 1,
+        "scene_text": "",
+        "characters": [
+          "young woman"
+        ],
+        "location": "railway station",
+        "core_action": "entering"
+      }
+    ]
+  }
+}

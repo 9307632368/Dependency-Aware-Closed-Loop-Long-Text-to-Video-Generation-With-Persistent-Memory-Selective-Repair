@@ -1,0 +1,27 @@
+{
+  "dependent_on_previous": false,
+  "continuity_text": "",
+  "selected_references": {},
+  "memory_snapshot": {
+    "characters": {},
+    "location": {
+      "name": "",
+      "background_text": "",
+      "lighting_text": "",
+      "tone_text": "",
+      "reference_frame_paths": []
+    },
+    "objects": {},
+    "style": {
+      "style_text": "",
+      "camera_text": "",
+      "palette_text": ""
+    },
+    "action": {
+      "action_text": "",
+      "motion_text": "",
+      "emotional_state": ""
+    },
+    "history": []
+  }
+}

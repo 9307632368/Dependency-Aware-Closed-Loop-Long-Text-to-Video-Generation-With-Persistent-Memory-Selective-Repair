@@ -1,0 +1,29 @@
+{
+  "scene_id": 1,
+  "scene_text": "A young woman enters a railway station in the morning.",
+  "dependent_on_previous": false,
+  "dependency_type": [],
+  "dependency_strength": 0.0,
+  "characters": [
+    "young woman"
+  ],
+  "location": "railway station",
+  "time_hint": "morning",
+  "core_action": "entering",
+  "camera_style": "",
+  "duration_s": 4.5,
+  "scene_role": "establishing",
+  "continuity_requirements": {
+    "preserve_character": false,
+    "preserve_location": false,
+    "preserve_object_state": false,
+    "preserve_style": false,
+    "preserve_camera": false,
+    "preserve_action": false
+  },
+  "metadata": {
+    "start_char_index": 0,
+    "end_char_index": 54,
+    "new_scene_reason": "new location"
+  }
+}

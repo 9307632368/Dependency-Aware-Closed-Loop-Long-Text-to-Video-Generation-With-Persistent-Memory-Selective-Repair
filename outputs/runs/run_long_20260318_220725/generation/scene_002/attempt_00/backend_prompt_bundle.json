@@ -1,0 +1,21 @@
+{
+  "positive_prompt": "young woman with long dark hair, wearing a blue coat, carrying a brown handbag, standing below the departure board, raising her head and eyes upward, slight body movement while reading train timings, at railway station during morning, busy railway platform, passengers in background, train station environment, departure board visible, soft morning light, medium wide cinematic shot, realistic lighting, high detail, smooth natural motion, stable subject, clear visible action, continue previous scene, same character appearance, same location and background, natural continuation of action",
+  "negative_prompt": "blurry, low quality, low detail, flicker, jitter, artifact, bad anatomy, distorted face, extra limbs, duplicate person, frozen pose, no motion, abrupt motion, camera shake, different person, different clothes, different hairstyle, different background, scene drift",
+  "prompt_metadata": {
+    "scene_id": 2,
+    "dependent_on_previous": true,
+    "dependency_type": [
+      "character",
+      "location",
+      "time"
+    ],
+    "continuity_requirements": {
+      "preserve_character": true,
+      "preserve_location": true,
+      "preserve_object_state": false,
+      "preserve_style": false,
+      "preserve_camera": false,
+      "preserve_action": true
+    }
+  }
+}

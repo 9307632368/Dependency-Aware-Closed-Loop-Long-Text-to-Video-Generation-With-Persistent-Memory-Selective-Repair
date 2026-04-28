@@ -1,0 +1,713 @@
+{
+  "ok": true,
+  "text_pipeline": {
+    "ok": true,
+    "scenes": {
+      "scenes": [
+        {
+          "scene_id": 1,
+          "scene_text": "A young woman enters a railway station in the morning.",
+          "start_char_index": 0,
+          "end_char_index": 54,
+          "characters": [
+            "young woman"
+          ],
+          "location": "railway station",
+          "time_hint": "morning",
+          "core_action": "entering",
+          "camera_style": "",
+          "new_scene_reason": "new location"
+        },
+        {
+          "scene_id": 2,
+          "scene_text": "She checks the departure board.",
+          "start_char_index": 55,
+          "end_char_index": 86,
+          "characters": [
+            "young woman"
+          ],
+          "location": "railway station",
+          "time_hint": "morning",
+          "core_action": "checking departure board",
+          "camera_style": "",
+          "new_scene_reason": "new action"
+        },
+        {
+          "scene_id": 3,
+          "scene_text": "A train arrives and she runs toward platform three.",
+          "start_char_index": 87,
+          "end_char_index": 138,
+          "characters": [
+            "young woman"
+          ],
+          "location": "railway station",
+          "time_hint": "morning",
+          "core_action": "running toward platform",
+          "camera_style": "",
+          "new_scene_reason": "new action"
+        },
+        {
+          "scene_id": 4,
+          "scene_text": "Inside the train, she sits by the window and opens an old letter.",
+          "start_char_index": 139,
+          "end_char_index": 204,
+          "characters": [
+            "young woman"
+          ],
+          "location": "inside the train",
+          "time_hint": "",
+          "core_action": "sitting and opening letter",
+          "camera_style": "",
+          "new_scene_reason": "location change"
+        }
+      ],
+      "global_notes": {
+        "num_scenes": 4,
+        "warnings": [],
+        "sentence_count": 4
+      }
+    },
+    "dependencies": {
+      "dependencies": [
+        {
+          "from_scene_id": 1,
+          "to_scene_id": 2,
+          "dependent": true,
+          "dependency_type": [
+            "character",
+            "location",
+            "time"
+          ],
+          "evidence": "same character in same location at same time",
+          "confidence": 0.95
+        },
+        {
+          "from_scene_id": 2,
+          "to_scene_id": 3,
+          "dependent": true,
+          "dependency_type": [
+            "character",
+            "location",
+            "time"
+          ],
+          "evidence": "same character in same location at same time",
+          "confidence": 0.96
+        },
+        {
+          "from_scene_id": 3,
+          "to_scene_id": 4,
+          "dependent": true,
+          "dependency_type": [
+            "character"
+          ],
+          "evidence": "same character continues journey",
+          "confidence": 0.92
+        }
+      ]
+    },
+    "scene_packets": {
+      "scene_packets": [
+        {
+          "scene_id": 1,
+          "scene_text": "A young woman enters a railway station in the morning.",
+          "dependent_on_previous": false,
+          "dependency_type": [],
+          "dependency_strength": 0.0,
+          "characters": [
+            "young woman"
+          ],
+          "location": "railway station",
+          "time_hint": "morning",
+          "core_action": "entering",
+          "camera_style": "",
+          "duration_s": 4.5,
+          "scene_role": "establishing",
+          "continuity_requirements": {
+            "preserve_character": false,
+            "preserve_location": false,
+            "preserve_object_state": false,
+            "preserve_style": false,
+            "preserve_camera": false,
+            "preserve_action": false
+          },
+          "metadata": {
+            "start_char_index": 0,
+            "end_char_index": 54,
+            "new_scene_reason": "new location"
+          }
+        },
+        {
+          "scene_id": 2,
+          "scene_text": "She checks the departure board.",
+          "dependent_on_previous": true,
+          "dependency_type": [
+            "character",
+            "location",
+            "time"
+          ],
+          "dependency_strength": 0.95,
+          "characters": [
+            "young woman"
+          ],
+          "location": "railway station",
+          "time_hint": "morning",
+          "core_action": "checking departure board",
+          "camera_style": "",
+          "duration_s": 4.0,
+          "scene_role": "action",
+          "continuity_requirements": {
+            "preserve_character": true,
+            "preserve_location": true,
+            "preserve_object_state": false,
+            "preserve_style": false,
+            "preserve_camera": false,
+            "preserve_action": true
+          },
+          "metadata": {
+            "start_char_index": 55,
+            "end_char_index": 86,
+            "new_scene_reason": "new action"
+          }
+        },
+        {
+          "scene_id": 3,
+          "scene_text": "A train arrives and she runs toward platform three.",
+          "dependent_on_previous": true,
+          "dependency_type": [
+            "character",
+            "location",
+            "time"
+          ],
+          "dependency_strength": 0.96,
+          "characters": [
+            "young woman"
+          ],
+          "location": "railway station",
+          "time_hint": "morning",
+          "core_action": "running toward platform",
+          "camera_style": "",
+          "duration_s": 4.5,
+          "scene_role": "establishing",
+          "continuity_requirements": {
+            "preserve_character": true,
+            "preserve_location": true,
+            "preserve_object_state": false,
+            "preserve_style": false,
+            "preserve_camera": false,
+            "preserve_action": true
+          },
+          "metadata": {
+            "start_char_index": 87,
+            "end_char_index": 138,
+            "new_scene_reason": "new action"
+          }
+        },
+        {
+          "scene_id": 4,
+          "scene_text": "Inside the train, she sits by the window and opens an old letter.",
+          "dependent_on_previous": true,
+          "dependency_type": [
+            "character"
+          ],
+          "dependency_strength": 0.92,
+          "characters": [
+            "young woman"
+          ],
+          "location": "inside the train",
+          "time_hint": "",
+          "core_action": "sitting and opening letter",
+          "camera_style": "",
+          "duration_s": 4.0,
+          "scene_role": "calm",
+          "continuity_requirements": {
+            "preserve_character": true,
+            "preserve_location": false,
+            "preserve_object_state": false,
+            "preserve_style": false,
+            "preserve_camera": false,
+            "preserve_action": false
+          },
+          "metadata": {
+            "start_char_index": 139,
+            "end_char_index": 204,
+            "new_scene_reason": "location change"
+          }
+        }
+      ],
+      "num_scene_packets": 4
+    }
+  },
+  "generation_pipeline": {
+    "ok": true,
+    "num_scenes": 4,
+    "num_failed_scenes": 0,
+    "failed_scenes": [],
+    "results": [
+      {
+        "ok": true,
+        "scene_id": 1,
+        "clip_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\scene_001.mp4",
+        "last_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_008.png",
+        "keyframe_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+        "character_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+        "location_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_000.png",
+        "object_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+        "last_frame_score": 0.9,
+        "keyframe_score": 0.88,
+        "character_frame_score": 0.86,
+        "location_frame_score": 0.84,
+        "object_frame_score": 0.82,
+        "appearance_text": "visual identity preserved for young woman",
+        "clothing_text": "keep outfit and appearance stable",
+        "background_text": "background consistent with railway station",
+        "lighting_text": "lighting consistent with morning",
+        "tone_text": "",
+        "object_states": {},
+        "backend_name": "CogVideoXBackend",
+        "backend_mode": "real_t2v",
+        "backend_seed": 42,
+        "num_exported_frames": 9,
+        "error": "",
+        "drift_report": {
+          "dependent_on_previous": false,
+          "drift_score": 0.0,
+          "drift_detected": false,
+          "details": {
+            "reason": "scene is independent"
+          }
+        },
+        "attempts_used": 1,
+        "best_drift_score": 0.0,
+        "selected_attempt_index": 0
+      },
+      {
+        "ok": true,
+        "scene_id": 2,
+        "clip_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\scene_002.mp4",
+        "last_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_008.png",
+        "keyframe_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_004.png",
+        "character_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_004.png",
+        "location_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_000.png",
+        "object_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_004.png",
+        "last_frame_score": 0.9,
+        "keyframe_score": 0.88,
+        "character_frame_score": 0.86,
+        "location_frame_score": 0.84,
+        "object_frame_score": 0.82,
+        "appearance_text": "visual identity preserved for young woman",
+        "clothing_text": "keep outfit and appearance stable",
+        "background_text": "background consistent with railway station",
+        "lighting_text": "lighting consistent with morning",
+        "tone_text": "",
+        "object_states": {
+          "board": "present"
+        },
+        "backend_name": "CogVideoXBackend",
+        "backend_mode": "real_t2v",
+        "backend_seed": 42,
+        "num_exported_frames": 9,
+        "error": "",
+        "drift_report": {
+          "dependent_on_previous": true,
+          "drift_score": 0.2,
+          "drift_detected": false,
+          "details": {
+            "scores": {
+              "character_consistency": 1.0,
+              "location_consistency": 1.0,
+              "action_consistency": 0.0,
+              "appearance_consistency": 1.0,
+              "background_consistency": 1.0
+            },
+            "scene_id": 2
+          }
+        },
+        "attempts_used": 1,
+        "best_drift_score": 0.2,
+        "selected_attempt_index": 0
+      },
+      {
+        "ok": true,
+        "scene_id": 3,
+        "clip_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\scene_003.mp4",
+        "last_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_008.png",
+        "keyframe_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_004.png",
+        "character_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_004.png",
+        "location_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_000.png",
+        "object_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_004.png",
+        "last_frame_score": 0.9,
+        "keyframe_score": 0.88,
+        "character_frame_score": 0.86,
+        "location_frame_score": 0.84,
+        "object_frame_score": 0.82,
+        "appearance_text": "visual identity preserved for young woman",
+        "clothing_text": "keep outfit and appearance stable",
+        "background_text": "background consistent with railway station",
+        "lighting_text": "lighting consistent with morning",
+        "tone_text": "",
+        "object_states": {
+          "train": "present"
+        },
+        "backend_name": "CogVideoXBackend",
+        "backend_mode": "real_t2v",
+        "backend_seed": 42,
+        "num_exported_frames": 9,
+        "error": "",
+        "drift_report": {
+          "dependent_on_previous": true,
+          "drift_score": 0.2,
+          "drift_detected": false,
+          "details": {
+            "scores": {
+              "character_consistency": 1.0,
+              "location_consistency": 1.0,
+              "action_consistency": 0.0,
+              "appearance_consistency": 1.0,
+              "background_consistency": 1.0
+            },
+            "scene_id": 3
+          }
+        },
+        "attempts_used": 1,
+        "best_drift_score": 0.2,
+        "selected_attempt_index": 0
+      },
+      {
+        "ok": true,
+        "scene_id": 4,
+        "clip_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\scene_004.mp4",
+        "last_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_008.png",
+        "keyframe_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png",
+        "character_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png",
+        "location_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_000.png",
+        "object_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png",
+        "last_frame_score": 0.9,
+        "keyframe_score": 0.88,
+        "character_frame_score": 0.86,
+        "location_frame_score": 0.84,
+        "object_frame_score": 0.82,
+        "appearance_text": "visual identity preserved for young woman",
+        "clothing_text": "keep outfit and appearance stable",
+        "background_text": "background consistent with inside the train",
+        "lighting_text": "",
+        "tone_text": "",
+        "object_states": {
+          "letter": "present",
+          "train": "present"
+        },
+        "backend_name": "CogVideoXBackend",
+        "backend_mode": "real_t2v",
+        "backend_seed": 42,
+        "num_exported_frames": 9,
+        "error": "",
+        "drift_report": {
+          "dependent_on_previous": true,
+          "drift_score": 0.0,
+          "drift_detected": false,
+          "details": {
+            "scores": {
+              "character_consistency": 1.0,
+              "appearance_consistency": 1.0
+            },
+            "scene_id": 4
+          }
+        },
+        "attempts_used": 1,
+        "best_drift_score": 0.0,
+        "selected_attempt_index": 0
+      }
+    ],
+    "final_memory_state": {
+      "characters": {
+        "young woman": {
+          "name": "young woman",
+          "appearance_text": "visual identity preserved for young woman",
+          "clothing_text": "keep outfit and appearance stable",
+          "identity_embedding_path": "",
+          "reference_frame_paths": [
+            "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+            "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_004.png",
+            "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_004.png",
+            "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png"
+          ]
+        }
+      },
+      "location": {
+        "name": "inside the train",
+        "background_text": "background consistent with inside the train",
+        "lighting_text": "lighting consistent with morning",
+        "tone_text": "",
+        "reference_frame_paths": [
+          "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_000.png",
+          "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_000.png",
+          "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_000.png",
+          "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_000.png"
+        ]
+      },
+      "objects": {
+        "board": {
+          "name": "board",
+          "state_text": "present",
+          "reference_frame_paths": [
+            "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_004.png"
+          ]
+        },
+        "train": {
+          "name": "train",
+          "state_text": "present",
+          "reference_frame_paths": [
+            "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_004.png",
+            "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png"
+          ]
+        },
+        "letter": {
+          "name": "letter",
+          "state_text": "present",
+          "reference_frame_paths": [
+            "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png"
+          ]
+        }
+      },
+      "style": {
+        "style_text": "",
+        "camera_text": "",
+        "palette_text": ""
+      },
+      "action": {
+        "action_text": "sitting and opening letter",
+        "motion_text": "",
+        "emotional_state": ""
+      },
+      "history": [
+        {
+          "scene_id": 1,
+          "scene_text": "",
+          "characters": [
+            "young woman"
+          ],
+          "location": "railway station",
+          "core_action": "entering"
+        },
+        {
+          "scene_id": 2,
+          "scene_text": "",
+          "characters": [
+            "young woman"
+          ],
+          "location": "railway station",
+          "core_action": "checking departure board"
+        },
+        {
+          "scene_id": 3,
+          "scene_text": "",
+          "characters": [
+            "young woman"
+          ],
+          "location": "railway station",
+          "core_action": "running toward platform"
+        },
+        {
+          "scene_id": 4,
+          "scene_text": "",
+          "characters": [
+            "young woman"
+          ],
+          "location": "inside the train",
+          "core_action": "sitting and opening letter"
+        }
+      ]
+    },
+    "final_reference_bank": {
+      "frames": [
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_008.png",
+          "frame_type": "last_frame",
+          "scene_id": 1,
+          "score": 0.9,
+          "tags": [
+            "transition"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "keyframe",
+          "scene_id": 1,
+          "score": 0.88,
+          "tags": [
+            "general"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "character_frame",
+          "scene_id": 1,
+          "score": 0.86,
+          "tags": [
+            "character"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_000.png",
+          "frame_type": "location_frame",
+          "scene_id": 1,
+          "score": 0.84,
+          "tags": [
+            "location"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "object_frame",
+          "scene_id": 1,
+          "score": 0.82,
+          "tags": [
+            "object"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_008.png",
+          "frame_type": "last_frame",
+          "scene_id": 2,
+          "score": 0.9,
+          "tags": [
+            "transition"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "keyframe",
+          "scene_id": 2,
+          "score": 0.88,
+          "tags": [
+            "general"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "character_frame",
+          "scene_id": 2,
+          "score": 0.86,
+          "tags": [
+            "character"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_000.png",
+          "frame_type": "location_frame",
+          "scene_id": 2,
+          "score": 0.84,
+          "tags": [
+            "location"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "object_frame",
+          "scene_id": 2,
+          "score": 0.82,
+          "tags": [
+            "object"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_008.png",
+          "frame_type": "last_frame",
+          "scene_id": 3,
+          "score": 0.9,
+          "tags": [
+            "transition"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "keyframe",
+          "scene_id": 3,
+          "score": 0.88,
+          "tags": [
+            "general"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "character_frame",
+          "scene_id": 3,
+          "score": 0.86,
+          "tags": [
+            "character"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_000.png",
+          "frame_type": "location_frame",
+          "scene_id": 3,
+          "score": 0.84,
+          "tags": [
+            "location"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "object_frame",
+          "scene_id": 3,
+          "score": 0.82,
+          "tags": [
+            "object"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_008.png",
+          "frame_type": "last_frame",
+          "scene_id": 4,
+          "score": 0.9,
+          "tags": [
+            "transition"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "keyframe",
+          "scene_id": 4,
+          "score": 0.88,
+          "tags": [
+            "general"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "character_frame",
+          "scene_id": 4,
+          "score": 0.86,
+          "tags": [
+            "character"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_000.png",
+          "frame_type": "location_frame",
+          "scene_id": 4,
+          "score": 0.84,
+          "tags": [
+            "location"
+          ]
+        },
+        {
+          "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png",
+          "frame_type": "object_frame",
+          "scene_id": 4,
+          "score": 0.82,
+          "tags": [
+            "object"
+          ]
+        }
+      ]
+    }
+  },
+  "stitching": {
+    "ok": true,
+    "stitched_output_path": "outputs\\runs\\run_long_20260318_220725/stitched_video/stitched_video.mp4",
+    "num_clips_used": 4,
+    "manifest_path": "outputs\\runs\\run_long_20260318_220725/stitched_video/stitch_manifest.json",
+    "concat_file_path": "outputs\\runs\\run_long_20260318_220725/stitched_video/concat_list.txt",
+    "log_path": "outputs\\runs\\run_long_20260318_220725/stitched_video/ffmpeg_stitch_log.txt"
+  }
+}

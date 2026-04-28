@@ -1,0 +1,65 @@
+{
+  "scenes": [
+    {
+      "scene_id": 1,
+      "scene_text": "A young woman enters a railway station in the morning.",
+      "start_char_index": 0,
+      "end_char_index": 54,
+      "characters": [
+        "young woman"
+      ],
+      "location": "railway station",
+      "time_hint": "morning",
+      "core_action": "entering",
+      "camera_style": "",
+      "new_scene_reason": "new location"
+    },
+    {
+      "scene_id": 2,
+      "scene_text": "She checks the departure board.",
+      "start_char_index": 55,
+      "end_char_index": 86,
+      "characters": [
+        "young woman"
+      ],
+      "location": "railway station",
+      "time_hint": "morning",
+      "core_action": "checking departure board",
+      "camera_style": "",
+      "new_scene_reason": "new action"
+    },
+    {
+      "scene_id": 3,
+      "scene_text": "A train arrives and she runs toward platform three.",
+      "start_char_index": 87,
+      "end_char_index": 138,
+      "characters": [
+        "young woman"
+      ],
+      "location": "railway station",
+      "time_hint": "morning",
+      "core_action": "running toward platform",
+      "camera_style": "",
+      "new_scene_reason": "new action"
+    },
+    {
+      "scene_id": 4,
+      "scene_text": "Inside the train, she sits by the window and opens an old letter.",
+      "start_char_index": 139,
+      "end_char_index": 204,
+      "characters": [
+        "young woman"
+      ],
+      "location": "inside the train",
+      "time_hint": "",
+      "core_action": "sitting and opening letter",
+      "camera_style": "",
+      "new_scene_reason": "location change"
+    }
+  ],
+  "global_notes": {
+    "num_scenes": 4,
+    "warnings": [],
+    "sentence_count": 4
+  }
+}

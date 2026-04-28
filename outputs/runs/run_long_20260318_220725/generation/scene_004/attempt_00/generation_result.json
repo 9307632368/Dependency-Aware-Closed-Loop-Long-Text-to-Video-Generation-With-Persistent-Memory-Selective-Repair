@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "scene_id": 4,
+  "clip_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\scene_004.mp4",
+  "last_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_008.png",
+  "keyframe_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png",
+  "character_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png",
+  "location_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_000.png",
+  "object_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png",
+  "last_frame_score": 0.9,
+  "keyframe_score": 0.88,
+  "character_frame_score": 0.86,
+  "location_frame_score": 0.84,
+  "object_frame_score": 0.82,
+  "appearance_text": "visual identity preserved for young woman",
+  "clothing_text": "keep outfit and appearance stable",
+  "background_text": "background consistent with inside the train",
+  "lighting_text": "",
+  "tone_text": "",
+  "object_states": {
+    "letter": "present",
+    "train": "present"
+  },
+  "backend_name": "CogVideoXBackend",
+  "backend_mode": "real_t2v",
+  "backend_seed": 42,
+  "num_exported_frames": 9,
+  "error": "",
+  "drift_report": {
+    "dependent_on_previous": true,
+    "drift_score": 0.0,
+    "drift_detected": false,
+    "details": {
+      "scores": {
+        "character_consistency": 1.0,
+        "appearance_consistency": 1.0
+      },
+      "scene_id": 4
+    }
+  }
+}

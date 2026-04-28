@@ -1,0 +1,29 @@
+{
+  "num_clips": 4,
+  "clips": [
+    {
+      "scene_id": 1,
+      "clip_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\scene_001.mp4",
+      "last_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_008.png",
+      "keyframe_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png"
+    },
+    {
+      "scene_id": 2,
+      "clip_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\scene_002.mp4",
+      "last_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_008.png",
+      "keyframe_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_004.png"
+    },
+    {
+      "scene_id": 3,
+      "clip_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\scene_003.mp4",
+      "last_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_008.png",
+      "keyframe_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_003\\attempt_00\\frames\\frame_004.png"
+    },
+    {
+      "scene_id": 4,
+      "clip_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\scene_004.mp4",
+      "last_frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_008.png",
+      "keyframe_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_004\\attempt_00\\frames\\frame_004.png"
+    }
+  ]
+}

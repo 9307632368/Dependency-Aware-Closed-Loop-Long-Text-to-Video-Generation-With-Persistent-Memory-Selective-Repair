@@ -1,0 +1,44 @@
+{
+  "scene_groups": [
+    {
+      "scene_id": 1,
+      "sentence_ids": [1],
+      "characters": ["young woman"],
+      "location": "railway station",
+      "time_hint": "morning",
+      "core_action": "entering",
+      "camera_style": "",
+      "new_scene_reason": "new location"
+    },
+    {
+      "scene_id": 2,
+      "sentence_ids": [2],
+      "characters": ["young woman"],
+      "location": "railway station",
+      "time_hint": "morning",
+      "core_action": "checking departure board",
+      "camera_style": "",
+      "new_scene_reason": "new action"
+    },
+    {
+      "scene_id": 3,
+      "sentence_ids": [3],
+      "characters": ["young woman"],
+      "location": "railway station",
+      "time_hint": "morning",
+      "core_action": "running toward platform",
+      "camera_style": "",
+      "new_scene_reason": "new action"
+    },
+    {
+      "scene_id": 4,
+      "sentence_ids": [4],
+      "characters": ["young woman"],
+      "location": "inside the train",
+      "time_hint": "",
+      "core_action": "sitting and opening letter",
+      "camera_style": "",
+      "new_scene_reason": "location change"
+    }
+  ]
+}

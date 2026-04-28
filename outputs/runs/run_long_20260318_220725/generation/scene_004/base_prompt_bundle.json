@@ -1,0 +1,19 @@
+{
+  "positive_prompt": "young woman with long dark hair, wearing a blue coat, carrying a brown handbag, sitting or standing inside the train with slight head movement, subtle body motion, and visible train interior movement, at inside the train, medium wide cinematic shot, realistic lighting, high detail, smooth natural motion, stable subject, clear visible action, continue previous scene, same character appearance",
+  "negative_prompt": "blurry, low quality, low detail, flicker, jitter, artifact, bad anatomy, distorted face, extra limbs, duplicate person, frozen pose, no motion, abrupt motion, camera shake, different person, different clothes, different hairstyle, different background, scene drift",
+  "prompt_metadata": {
+    "scene_id": 4,
+    "dependent_on_previous": true,
+    "dependency_type": [
+      "character"
+    ],
+    "continuity_requirements": {
+      "preserve_character": true,
+      "preserve_location": false,
+      "preserve_object_state": false,
+      "preserve_style": false,
+      "preserve_camera": false,
+      "preserve_action": false
+    }
+  }
+}

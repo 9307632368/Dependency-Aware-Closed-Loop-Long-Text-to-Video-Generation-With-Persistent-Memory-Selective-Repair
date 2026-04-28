@@ -1,0 +1,49 @@
+{
+  "frames": [
+    {
+      "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_008.png",
+      "frame_type": "last_frame",
+      "scene_id": 1,
+      "score": 0.9,
+      "tags": [
+        "transition"
+      ]
+    },
+    {
+      "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+      "frame_type": "keyframe",
+      "scene_id": 1,
+      "score": 0.88,
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+      "frame_type": "character_frame",
+      "scene_id": 1,
+      "score": 0.86,
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_000.png",
+      "frame_type": "location_frame",
+      "scene_id": 1,
+      "score": 0.84,
+      "tags": [
+        "location"
+      ]
+    },
+    {
+      "frame_path": "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+      "frame_type": "object_frame",
+      "scene_id": 1,
+      "score": 0.82,
+      "tags": [
+        "object"
+      ]
+    }
+  ]
+}

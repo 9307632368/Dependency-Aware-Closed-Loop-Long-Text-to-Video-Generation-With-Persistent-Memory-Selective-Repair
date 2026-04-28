@@ -1,0 +1,22 @@
+[2026-03-18 22:07:25] [INFO] Using prompt file: data/prompts/prompt_001.txt
+[2026-03-18 22:07:25] [INFO] Using backend config: configs/generation/backend.yaml
+[2026-03-18 22:07:25] [INFO] Launching long video pipeline
+[2026-03-18 22:07:25] [INFO] Starting full pipeline
+[2026-03-18 22:07:25] [INFO] Running text planning pipeline
+[2026-03-18 22:07:25] [INFO] Starting segmentation stage
+[2026-03-18 22:07:26] [INFO] Segmentation completed successfully
+[2026-03-18 22:07:26] [INFO] Starting dependency detection stage
+[2026-03-18 22:07:27] [INFO] Dependency detection completed successfully
+[2026-03-18 22:07:27] [INFO] Text planning pipeline completed
+[2026-03-18 22:07:27] [INFO] Running generation pipeline
+[2026-03-18 22:07:27] [INFO] Generating scene 1
+[2026-03-18 22:08:17] [INFO] Scene 1 generated successfully with best drift score 0.0
+[2026-03-18 22:08:17] [INFO] Generating scene 2
+[2026-03-18 22:08:51] [INFO] Scene 2 generated successfully with best drift score 0.2
+[2026-03-18 22:08:51] [INFO] Generating scene 3
+[2026-03-18 22:09:25] [INFO] Scene 3 generated successfully with best drift score 0.2
+[2026-03-18 22:09:25] [INFO] Generating scene 4
+[2026-03-18 22:09:59] [INFO] Scene 4 generated successfully with best drift score 0.0
+[2026-03-18 22:09:59] [INFO] Running stitcher
+[2026-03-18 22:09:59] [INFO] Full pipeline completed successfully
+[2026-03-18 22:09:59] [INFO] Full long video pipeline completed successfully

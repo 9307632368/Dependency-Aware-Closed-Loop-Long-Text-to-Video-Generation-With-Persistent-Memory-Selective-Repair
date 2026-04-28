@@ -1,0 +1,63 @@
+{
+  "characters": {
+    "young woman": {
+      "name": "young woman",
+      "appearance_text": "visual identity preserved for young woman",
+      "clothing_text": "keep outfit and appearance stable",
+      "identity_embedding_path": "",
+      "reference_frame_paths": [
+        "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_004.png",
+        "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_004.png"
+      ]
+    }
+  },
+  "location": {
+    "name": "railway station",
+    "background_text": "background consistent with railway station",
+    "lighting_text": "lighting consistent with morning",
+    "tone_text": "",
+    "reference_frame_paths": [
+      "outputs\\runs\\run_long_20260318_220725\\generation\\scene_001\\attempt_00\\frames\\frame_000.png",
+      "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_000.png"
+    ]
+  },
+  "objects": {
+    "board": {
+      "name": "board",
+      "state_text": "present",
+      "reference_frame_paths": [
+        "outputs\\runs\\run_long_20260318_220725\\generation\\scene_002\\attempt_00\\frames\\frame_004.png"
+      ]
+    }
+  },
+  "style": {
+    "style_text": "",
+    "camera_text": "",
+    "palette_text": ""
+  },
+  "action": {
+    "action_text": "checking departure board",
+    "motion_text": "",
+    "emotional_state": ""
+  },
+  "history": [
+    {
+      "scene_id": 1,
+      "scene_text": "",
+      "characters": [
+        "young woman"
+      ],
+      "location": "railway station",
+      "core_action": "entering"
+    },
+    {
+      "scene_id": 2,
+      "scene_text": "",
+      "characters": [
+        "young woman"
+      ],
+      "location": "railway station",
+      "core_action": "checking departure board"
+    }
+  ]
+}

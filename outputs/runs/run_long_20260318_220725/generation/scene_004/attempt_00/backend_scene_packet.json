@@ -1,0 +1,31 @@
+{
+  "scene_id": 4,
+  "scene_text": "Inside the train, she sits by the window and opens an old letter.",
+  "dependent_on_previous": true,
+  "dependency_type": [
+    "character"
+  ],
+  "dependency_strength": 0.92,
+  "characters": [
+    "young woman"
+  ],
+  "location": "inside the train",
+  "time_hint": "",
+  "core_action": "sitting and opening letter",
+  "camera_style": "",
+  "duration_s": 4.0,
+  "scene_role": "calm",
+  "continuity_requirements": {
+    "preserve_character": true,
+    "preserve_location": false,
+    "preserve_object_state": false,
+    "preserve_style": false,
+    "preserve_camera": false,
+    "preserve_action": false
+  },
+  "metadata": {
+    "start_char_index": 139,
+    "end_char_index": 204,
+    "new_scene_reason": "location change"
+  }
+}

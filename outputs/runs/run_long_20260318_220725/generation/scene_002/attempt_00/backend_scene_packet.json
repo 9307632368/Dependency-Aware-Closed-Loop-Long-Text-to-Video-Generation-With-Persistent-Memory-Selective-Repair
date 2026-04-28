@@ -1,0 +1,33 @@
+{
+  "scene_id": 2,
+  "scene_text": "She checks the departure board.",
+  "dependent_on_previous": true,
+  "dependency_type": [
+    "character",
+    "location",
+    "time"
+  ],
+  "dependency_strength": 0.95,
+  "characters": [
+    "young woman"
+  ],
+  "location": "railway station",
+  "time_hint": "morning",
+  "core_action": "checking departure board",
+  "camera_style": "",
+  "duration_s": 4.0,
+  "scene_role": "action",
+  "continuity_requirements": {
+    "preserve_character": true,
+    "preserve_location": true,
+    "preserve_object_state": false,
+    "preserve_style": false,
+    "preserve_camera": false,
+    "preserve_action": true
+  },
+  "metadata": {
+    "start_char_index": 55,
+    "end_char_index": 86,
+    "new_scene_reason": "new action"
+  }
+}

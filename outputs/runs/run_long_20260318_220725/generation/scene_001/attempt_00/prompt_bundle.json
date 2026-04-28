@@ -1,0 +1,17 @@
+{
+  "positive_prompt": "young woman with long dark hair, wearing a blue coat, carrying a brown handbag, walking from left to right into the railway station with visible full body movement and swinging arms, at railway station during morning, busy railway platform, passengers in background, train station environment, soft morning light, wide cinematic shot, realistic lighting, high detail, smooth natural motion, stable subject, clear visible action",
+  "negative_prompt": "blurry, low quality, low detail, flicker, jitter, artifact, bad anatomy, distorted face, extra limbs, duplicate person, frozen pose, no motion, abrupt motion, camera shake",
+  "prompt_metadata": {
+    "scene_id": 1,
+    "dependent_on_previous": false,
+    "dependency_type": [],
+    "continuity_requirements": {
+      "preserve_character": false,
+      "preserve_location": false,
+      "preserve_object_state": false,
+      "preserve_style": false,
+      "preserve_camera": false,
+      "preserve_action": false
+    }
+  }
+}

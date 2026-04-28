@@ -1,0 +1,8 @@
+{
+  "dependent_on_previous": false,
+  "drift_score": 0.0,
+  "drift_detected": false,
+  "details": {
+    "reason": "scene is independent"
+  }
+}

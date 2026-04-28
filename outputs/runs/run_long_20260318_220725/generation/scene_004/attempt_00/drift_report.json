@@ -1,0 +1,12 @@
+{
+  "dependent_on_previous": true,
+  "drift_score": 0.0,
+  "drift_detected": false,
+  "details": {
+    "scores": {
+      "character_consistency": 1.0,
+      "appearance_consistency": 1.0
+    },
+    "scene_id": 4
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "dependencies": [
+    {
+      "from_scene_id": 1,
+      "to_scene_id": 2,
+      "dependent": true,
+      "dependency_type": [
+        "character",
+        "location",
+        "time"
+      ],
+      "evidence": "same character in same location at same time",
+      "confidence": 0.95
+    },
+    {
+      "from_scene_id": 2,
+      "to_scene_id": 3,
+      "dependent": true,
+      "dependency_type": [
+        "character",
+        "location",
+        "time"
+      ],
+      "evidence": "same character in same location at same time",
+      "confidence": 0.96
+    },
+    {
+      "from_scene_id": 3,
+      "to_scene_id": 4,
+      "dependent": true,
+      "dependency_type": [
+        "character"
+      ],
+      "evidence": "same character continues journey",
+      "confidence": 0.92
+    }
+  ]
+}
