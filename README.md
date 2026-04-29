@@ -246,20 +246,117 @@ python scripts/run_scene_generation.py
 The project is organized around scene-level generation, continuity memory, evaluation, and repair. The codebase separates text processing, generation, diffusion-related modules, continuity handling, repair logic, and video utilities so that each part can be improved independently.
 
 ## some samples
-Click the image below to watch the stitched generated video.
+## Sample Output
 
-[![Watch Final Video](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png)](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4)
+### Input Prompt
 
-### Scene-wise Preview
+```text
+A young woman enters a railway station in the morning. She checks the departure board. A train arrives and she runs toward platform three. Inside the train, she sits by the window and opens an old letter.
+```
 
-| Scene | Preview | Video |
-|---|---|---|
-| Scene 01 | ![Scene 01](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png) | [Watch Scene 01](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/scene_001.mp4) |
-| Scene 02 | ![Scene 02](outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_004.png) | [Watch Scene 02](outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/scene_002.mp4) |
-| Scene 03 | ![Scene 03](outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_004.png) | [Watch Scene 03](outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/scene_003.mp4) |
-| Scene 04 | ![Scene 04](outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_004.png) | [Watch Scene 04](outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/scene_004.mp4) |
+### Final Stitched Video
 
+Click the preview image to watch the final generated video.
 
+[![Watch Final Stitched Video](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png)](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4)
+
+---
+
+## Scene-wise Segmentation and Output
+
+### Scene 01
+
+**Segmented Text:**  
+A young woman enters a railway station in the morning.
+
+**Scene Video:**  
+[Watch Scene 01](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/scene_001.mp4)
+
+**Frames:**
+
+<p>
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_000.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_001.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_002.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_003.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_005.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_006.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_007.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_008.png" width="220">
+</p>
+
+---
+
+### Scene 02
+
+**Segmented Text:**  
+She checks the departure board.
+
+**Scene Video:**  
+[Watch Scene 02](outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/scene_002.mp4)
+
+**Frames:**
+
+<p>
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_000.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_001.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_002.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_003.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_004.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_005.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_006.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_007.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_008.png" width="220">
+</p>
+
+---
+
+### Scene 03
+
+**Segmented Text:**  
+A train arrives and she runs toward platform three.
+
+**Scene Video:**  
+[Watch Scene 03](outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/scene_003.mp4)
+
+**Frames:**
+
+<p>
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_000.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_001.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_002.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_003.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_004.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_005.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_006.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_007.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_008.png" width="220">
+</p>
+
+---
+
+### Scene 04
+
+**Segmented Text:**  
+Inside the train, she sits by the window and opens an old letter.
+
+**Scene Video:**  
+[Watch Scene 04](outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/scene_004.mp4)
+
+**Frames:**
+
+<p>
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_000.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_001.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_002.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_003.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_004.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_005.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_006.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_007.png" width="220">
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_008.png" width="220">
+</p>
 ## Authors
 
 Rohan Pol  
