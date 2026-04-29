@@ -8,6 +8,7 @@ This project focuses on long text-to-video generation, where a long input prompt
 
 Instead of generating the whole video at once, this project follows a structured pipeline. It first performs scene segmentation, then checks dependencies between scenes, generates video scene-wise, stores continuity information, and applies repair when inconsistencies are detected.
 
+It sucessfully generated videos by extending capacity of any model through this pipeline with same requirement of that model and generates whatever length of videos corresponding to text by maintaing visual consistency, temporal consistency and many other factors for e.g if model x is generating 4 sec video for short prompt through this pipeline it will generate scenewise videos for long text prompt  
 ## Main Idea
 
 Most text-to-video models work better for short clips. When the prompt becomes long and contains multiple connected scenes, the generated video may lose consistency. For example, the same character may look different in later scenes, or the location may change even when it should remain the same.
