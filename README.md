@@ -258,8 +258,7 @@ A young woman enters a railway station in the morning. She checks the departure 
 
 Click the preview image to watch the final generated video.
 
-[▶️ ![Watch Final Stitched Video](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png)](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4)
-
+[▶️ ![Preview](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png)](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4)
 ---
 
 ## Scene-wise Segmentation and Output
