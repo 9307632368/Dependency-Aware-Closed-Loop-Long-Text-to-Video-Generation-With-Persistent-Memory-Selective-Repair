@@ -352,6 +352,32 @@ python scripts/run_single_prompt.py
 python scripts/run_long_video.py
 python scripts/run_scene_generation.py
 ```
+## System Requirements
+
+### Hardware
+- CPU: Minimum 4 cores (8 cores recommended)  
+- RAM: Minimum 16 GB (32 GB recommended)  
+- GPU: NVIDIA GPU with CUDA support  
+  - Minimum: 8 GB VRAM (for small runs)  
+  - Recommended: 12 GB+ VRAM (for stable generation)  
+- Storage: At least 20–50 GB free space  
+
+---
+
+### Software
+- OS: Windows / Linux  
+- Python: 3.9 or higher  
+- CUDA: 11.x or 12.x (based on PyTorch version)  
+- Git  
+
+---
+
+### Python Dependencies
+Install all required packages using:
+
+```bash
+pip install -r requirements.txt
+
 
 ## Notes
 
