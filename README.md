@@ -21,6 +21,9 @@ This project explores a **scene-wise generation pipeline** that segments a long 
 <p align="center">
   <em>Figure 1. Overall DAMF-CMG framework for closed-loop long text-to-video generation with dependency-aware memory-guided denoising.</em>
 </p>
+<p align="center">
+  <img src="assets/fig3.png" alt="DAMF-UNet-Architecture" width="100%" />
+</p>
 
 The proposed framework organizes a long prompt into transition-aware scenes and a repair-aware dependency graph. It then prepares scene packets, retrieves relevant committed visual memory, and guides generation through the proposed DAMF-U-Net architecture. The scene audit determines whether an output is accepted into memory or sent for selective repair. The accompanying repository contains an experimental scene-wise generation prototype; the complete trainable DAMF-U-Net design is described in the dissertation rather than claimed as fully implemented here.
 
