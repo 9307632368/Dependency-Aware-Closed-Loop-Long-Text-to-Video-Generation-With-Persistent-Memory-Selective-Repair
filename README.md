@@ -12,19 +12,17 @@ Many text-to-video models produce short clips, but a long narrative consists of 
 
 This project explores a **scene-wise generation pipeline** that segments a long prompt, represents relationships among scenes, carries forward continuity information, evaluates generated content, and uses repair logic to address selected failures.
 
-## System workflow
+## System Workflow
 
-```mermaid
-flowchart TD
-    A[Long text prompt] --> B[Scene segmentation]
-    B --> C[Scene dependencies and packets]
-    C --> D[Scene-wise video generation]
-    D --> E[Continuity tracking and evaluation]
-    E --> F{Consistency acceptable?}
-    F -->|Yes| G[Accept scene and update memory]
-    F -->|No| H[Repair or regenerate selected scene]
-    H --> D
-    G --> I[Stitch accepted scenes into final video]
+<p align="center">
+  <img src="assets/damf_cmg_framework.png" alt="Overall DAMF-CMG Framework" width="100%">
+</p>
+
+<p align="center">
+  <em>Figure 1. Overall DAMF-CMG framework for closed-loop long text-to-video generation with dependency-aware memory-guided denoising.</em>
+</p>
+
+The DAMF-CMG pipeline first segments a long prompt into transition-aware scenes, builds a repair-aware causal dependency graph, constructs constraint-aware scene packets, retrieves dependency-relevant memory, and performs memory-guided denoising through DAMF-U-Net. Generated scenes are then audited. Passed scenes update the committed memory bank, while failed scenes trigger selective repair and downstream regeneration.
 ```
 
 The dissertation expands on this workflow with a **repair-aware dependency graph**, **audit-gated causal memory**, and a proposed **DAMF-U-Net** mechanism for conditioning denoising on relevant visual memories.
