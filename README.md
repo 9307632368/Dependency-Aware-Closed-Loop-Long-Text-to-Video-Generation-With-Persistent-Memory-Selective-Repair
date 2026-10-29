@@ -1,390 +1,117 @@
-# Dependency-Aware Closed-Loop Long Text-to-Video Generation  Persistent Visual Memory and Selective Scene Repair
+# Dependency-Aware Closed-Loop Long Text-to-Video Generation
 
+**Persistent visual memory, scene dependencies, and selective scene repair**
 
+This repository documents an experimental pipeline for generating multi-scene videos from long text prompts. It also accompanies the M.Tech dissertation **“Dependency-Aware Multi-Level Feature-Guided U-Net with Audit-Gated Causal Memory for Long Text-to-Video Generation” (DAMF-CMG)**, completed at the National Institute of Technology Sikkim in 2026.
+
+> **Scope:** The repository contains a scene-wise video-generation prototype and related code/output artifacts. The dissertation describes a broader DAMF-CMG research framework, including proposed memory-conditioned denoising components. The existence of a design in the dissertation should not be interpreted as proof that every described component is fully trained or implemented in this repository.
 
 ## Overview
 
-This project focuses on long text-to-video generation, where a long input prompt is divided into multiple scenes and generated step by step. The main aim is to reduce common problems in long video generation such as identity drift, location mismatch, object inconsistency, and broken scene continuity.
+Many text-to-video models produce short clips, but a long narrative consists of connected scenes. Generating these scenes independently can cause character identity drift, inconsistent backgrounds, disappearing props, and weak transitions.
 
-Instead of generating the whole video at once, this project follows a structured pipeline. It first performs scene segmentation, then checks dependencies between scenes, generates video scene-wise, stores continuity information, and applies repair when inconsistencies are detected.
+This project explores a **scene-wise generation pipeline** that segments a long prompt, represents relationships among scenes, carries forward continuity information, evaluates generated content, and uses repair logic to address selected failures.
 
-It sucessfully generated videos by extending capacity of any model through this pipeline with same requirement of that model and generates whatever length of videos corresponding to text by maintaing visual consistency, temporal consistency and many other factors for e.g if model x is generating 4 sec video for short prompt through this pipeline it will generate scenewise videos for long text prompt  
-## Main Idea
+## System workflow
 
-Most text-to-video models work better for short clips. When the prompt becomes long and contains multiple connected scenes, the generated video may lose consistency. For example, the same character may look different in later scenes, or the location may change even when it should remain the same.
-
-This project handles that problem using dependency-aware scene generation, memory-based continuity, and selective repair.
-
-## System Flow
-
-```text
-Long Text Prompt
-        ↓
-Scene Segmentation
-        ↓
-Dependency Detection
-        ↓
-Scene Packet Creation
-        ↓
-Scene-wise Video Generation
-        ↓
-Continuity Tracking
-        ↓
-Consistency Evaluation
-        ↓
-Selective Scene Repair
-        ↓
-Final Video Output
+```mermaid
+flowchart TD
+    A[Long text prompt] --> B[Scene segmentation]
+    B --> C[Scene dependencies and packets]
+    C --> D[Scene-wise video generation]
+    D --> E[Continuity tracking and evaluation]
+    E --> F{Consistency acceptable?}
+    F -->|Yes| G[Accept scene and update memory]
+    F -->|No| H[Repair or regenerate selected scene]
+    H --> D
+    G --> I[Stitch accepted scenes into final video]
 ```
 
-## Sample Output
+The dissertation expands on this workflow with a **repair-aware dependency graph**, **audit-gated causal memory**, and a proposed **DAMF-U-Net** mechanism for conditioning denoising on relevant visual memories.
 
-### Input Prompt
+## Main ideas
 
-```text
-A young woman enters a railway station in the morning. She checks the departure board. A train arrives and she runs toward platform three. Inside the train, she sits by the window and opens an old letter.
-```
+- **Scene segmentation:** split a narrative prompt into manageable scene descriptions.
+- **Scene dependencies:** track recurring characters, locations, props, actions, and transitions.
+- **Scene-wise generation:** produce short clips and combine them into a longer sequence.
+- **Continuity memory:** reuse relevant information or references from earlier scenes.
+- **Consistency evaluation:** examine drift and continuity errors.
+- **Selective repair:** focus correction on problematic scenes rather than always repeating the entire sequence.
 
-### Final Stitched Video
+**Research proposal vs. prototype:** DAMF-CMG's full trainable memory-conditioning architecture is described in the dissertation. Confirm the actual implementation and experimental evidence in the code and output artifacts before treating that architectural proposal as a validated result.
 
-Click the preview image to watch the final generated video.
+## Example generation
 
-[▶️ ![Preview](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png)](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4)
----
+**Example prompt** (from the earlier project README):
 
-## Scene-wise Segmentation and Output
+> A young woman enters a railway station in the morning. She checks the departure board. A train arrives and she runs toward platform three. Inside the train, she sits by the window and opens an old letter.
 
-### Scene 01
+**Scene breakdown**
 
-**Segmented Text:**  
-A young woman enters a railway station in the morning.
+1. The woman enters the railway station.
+2. She checks the departure board.
+3. A train arrives, and she runs toward platform three.
+4. She sits inside the train and opens the letter.
 
-**Scene Video:**  
-[Watch Scene 01](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/scene_001.mp4)
+[Watch the stitched video](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4) · [See a sample frame](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png)
 
-**Frames:**
+The links above are retained from an earlier README draft. **Verify that these exact files are committed** before publishing this section; otherwise update the paths or remove the links.
 
-<p>
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_000.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_001.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_002.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_003.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_005.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_006.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_007.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_008.png" width="220">
-</p>
-
----
-
-### Scene 02
-
-**Segmented Text:**  
-She checks the departure board.
-
-**Scene Video:**  
-[Watch Scene 02](outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/scene_002.mp4)
-
-**Frames:**
-
-<p>
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_000.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_001.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_002.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_003.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_004.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_005.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_006.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_007.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_008.png" width="220">
-</p>
-
----
-
-### Scene 03
-
-**Segmented Text:**  
-A train arrives and she runs toward platform three.
-
-**Scene Video:**  
-[Watch Scene 03](outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/scene_003.mp4)
-
-**Frames:**
-
-<p>
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_000.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_001.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_002.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_003.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_004.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_005.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_006.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_007.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_008.png" width="220">
-</p>
-
----
-
-### Scene 04
-
-**Segmented Text:**  
-Inside the train, she sits by the window and opens an old letter.
-
-**Scene Video:**  
-[Watch Scene 04](outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/scene_004.mp4)
-
-**Frames:**
-
-<p>
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_000.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_001.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_002.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_003.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_004.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_005.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_006.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_007.png" width="220">
-  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_008.png" width="220">
-</p>
-
-
-## Key Components
-
-### Scene Segmentation
-
-The long prompt is divided into smaller scene-level descriptions. This makes the generation process easier to control and evaluate.
-
-### Dependency Detection
-
-The system checks whether a scene depends on previous scenes. For example, a scene may depend on the same character, same location, same object, or previous event.
-
-### Scene-wise Generation
-
-Each scene is generated separately using video generation backends such as CogVideoX, SVD, dummy backend, or hybrid backend depending on the configuration.
-
-### Continuity Memory
-
-Important information from previous scenes is stored and reused. This includes character appearance, locations, props, style, and selected keyframes.
-
-### Consistency Scoring
-
-Generated scenes are checked for continuity problems such as identity drift, object loss, location mismatch, and story inconsistency.
-
-### Selective Repair
-
-If a scene has a problem, the repair module decides whether to regenerate the scene, improve the prompt, change references, or apply a repair policy.
-
-## Project Structure
+## Repository structure
 
 ```text
-project/
-│── README.md
-│── requirements.txt
-│── implementation workflow.txt
-│
-├── configs/
-│   ├── settings.yaml
-│   │
-│   ├── diffusion/
-│   │   ├── model.yaml
-│   │   └── sampling.yaml
-│   │
-│   ├── evaluation/
-│   │   └── metrics.yaml
-│   │
-│   ├── generation/
-│   │   ├── backend.yaml
-│   │   ├── continuity.yaml
-│   │   └── prompt_builder.yaml
-│   │
-│   └── prompts/
-│       ├── dep_system.txt
-│       ├── dep_user.txt
-│       ├── json_repair_system.txt
-│       ├── json_repair_user.txt
-│       ├── repair_system.txt
-│       ├── repair_user.txt
-│       ├── seg_system.txt
-│       ├── seg_user.txt
-│       ├── style_guide.txt
-│       ├── verify_system.txt
-│       └── verify_user.txt
-│
-├── data/
-│   ├── metadata/
-│   │   ├── dependencies/
-│   │   ├── scenes/
-│   │   └── scene_packets/
-│   │
-│   ├── prompts/
-│   │   └── prompt_001.txt
-│   │
-│   ├── references/
-│   │   ├── characters/
-│   │   ├── keyframes/
-│   │   └── locations/
-│   │
-│   ├── video_clips/
-│   └── video_raw/
-│
-├── outputs/
-│   ├── figures/
-│   ├── generated/
-│   │   ├── cogvideox/
-│   │   └── svd/
-│   │
-│   └── runs/
-│
-├── scripts/
-│   ├── extract_clips.py
-│   ├── make_report_figs.py
-│   ├── run_batch_prompts.py
-│   ├── run_long_video.py
-│   ├── run_scene_generation.py
-│   ├── run_single_prompt.py
-│   └── __init__.py
-│
-└── src/
-    ├── main.py
-    ├── __init__.py
-    │
-    ├── continuity/
-    │   ├── consistency_scorer.py
-    │   ├── constraint_builder.py
-    │   ├── drift.py
-    │   ├── extract.py
-    │   ├── keyframe_selector.py
-    │   ├── manager.py
-    │   ├── memory.py
-    │   ├── package.py
-    │   ├── reference_bank.py
-    │   ├── state_tracker.py
-    │   ├── story_schema.py
-    │   └── __init__.py
-    │
-    ├── diffusion/
-    │   ├── conditioning.py
-    │   ├── model.py
-    │   ├── sampler.py
-    │   └── __init__.py
-    │
-    ├── eval/
-    │   ├── ablation_runner.py
-    │   ├── continuity_metrics.py
-    │   ├── metrics.py
-    │   ├── sanity.py
-    │   ├── story_metrics.py
-    │   └── __init__.py
-    │
-    ├── generation/
-    │   ├── prompt_builder.py
-    │   ├── retry.py
-    │   ├── scene_generator.py
-    │   ├── __init__.py
-    │   │
-    │   └── backend/
-    │       ├── base.py
-    │       ├── cogvideox_backend.py
-    │       ├── common.py
-    │       ├── dummy_backend.py
-    │       ├── factory.py
-    │       ├── hybrid_backend.py
-    │       ├── router.py
-    │       ├── svd_backend.py
-    │       └── __init__.py
-    │
-    ├── llm/
-    │   ├── client.py
-    │   ├── parsing.py
-    │   ├── prompts.py
-    │   ├── repair.py
-    │   └── __init__.py
-    │
-    ├── pipeline/
-    │   ├── run_full_pipeline.py
-    │   ├── run_generation_pipeline.py
-    │   ├── run_text_pipeline.py
-    │   └── __init__.py
-    │
-    ├── repair/
-    │   ├── failure_classifier.py
-    │   ├── repair_policy.py
-    │   ├── scene_repair.py
-    │   └── __init__.py
-    │
-    ├── text/
-    │   ├── dependency.py
-    │   ├── packet_builder.py
-    │   ├── postprocess.py
-    │   ├── scene_packet.py
-    │   ├── segmentation.py
-    │   ├── sentence_splitter.py
-    │   ├── sentence_utils.py
-    │   └── __init__.py
-    │
-    ├── utils/
-    │   ├── io.py
-    │   ├── logger.py
-    │   ├── paths.py
-    │   ├── seed.py
-    │   └── __init__.py
-    │
-    └── video/
-        ├── frames.py
-        ├── io.py
-        ├── stitch.py
-        ├── transitions.py
-        ├── vae.py
-        └── __init__.py
+.
+├── configs/             # Configuration files
+├── data/prompts/        # Example long-text prompts
+├── outputs/runs/        # Generated scene and run artifacts
+├── scripts/             # Pipeline entry points and utilities
+├── src/                 # Core implementation modules
+├── reports/             # M.Tech dissertation PDF
+├── README.md            # Project overview and usage
+└── requirements.txt     # Python package dependencies
 ```
 
-## How to Run
+## Getting started
+
+Clone the repository and install the dependencies:
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/9307632368/Dependency-Aware-Closed-Loop-Long-Text-to-Video-Generation-With-Persistent-Memory-Selective-Repair.git
+cd Dependency-Aware-Closed-Loop-Long-Text-to-Video-Generation-With-Persistent-Memory-Selective-Repair
+python -m pip install -r requirements.txt
+```
+
+The earlier README identifies the following entry point:
+
+```bash
 python -m src.main
 ```
 
-or run specific scripts:
+**Before running:** check the configuration under `configs/`, available pretrained-model dependencies, GPU resources, and whether this entry point matches the current code. Requirements and hardware needs vary with the selected generation backend.
 
-```bash
-python scripts/run_single_prompt.py
-python scripts/run_long_video.py
-python scripts/run_scene_generation.py
-```
-## System Requirements
+## Dissertation and technical documentation
 
-### Hardware
-- CPU: Minimum 4 cores (8 cores recommended)  
-- RAM: Minimum 16 GB (32 GB recommended)  
-- GPU: NVIDIA GPU with CUDA support  
-  - Minimum: 8 GB VRAM (for small runs)  
-  - Recommended: 12 GB+ VRAM (for stable generation)  
-- Storage: At least 20–50 GB free space  
+**Title:** Dependency-Aware Multi-Level Feature-Guided U-Net with Audit-Gated Causal Memory for Long Text-to-Video Generation  
+**Author:** Rohan Sanjay Pol  
+**Program:** M.Tech in Artificial Intelligence and Machine Learning  
+**Institute:** National Institute of Technology Sikkim  
+**Year:** 2026
+
+[Read the M.Tech dissertation (PDF)](reports/DAMF_CMG_MTech_Dissertation.pdf)
+
+The dissertation discusses the proposed DAMF-CMG architecture, dependencies between scenes, audit-gated memory, memory-guided denoising, evaluation strategies, limitations, and future directions.
+
+## Evaluation and limitations
+
+Long-form consistency can be evaluated using identity, location, prop, style, motion, and transition metrics, alongside text-video alignment and repair-related measurements. **Do not interpret the presence of a proposed metric or an evaluation plan as evidence of a completed benchmark.** Report measured scores here only when they can be traced to a reproducible run and a documented experiment.
+
+The overall system remains sensitive to the underlying video-generation backend, computational resources, prompt quality, and the accuracy of scene planning and continuity assessment.
+
+## Author
+
+**Rohan Sanjay Pol**  
+M.Tech, Artificial Intelligence and Machine Learning — National Institute of Technology Sikkim
 
 ---
 
-### Software
-- OS: Windows / Linux  
-- Python: 3.9 or higher  
-- CUDA: 11.x or 12.x (based on PyTorch version)  
-- Git  
-
----
-
-### Python Dependencies
-Install all required packages using:
-
-```bash
-pip install -r requirements.txt
-
-
-## Notes
-
-The project is organized around scene-level generation, continuity memory, evaluation, and repair. The codebase separates text processing, generation, diffusion-related modules, continuity handling, repair logic, and video utilities so that each part can be improved independently.
-
-## Authors
-
-Rohan Pol  
-M.Tech AI & ML
+*If you reuse or adapt this work, please provide appropriate attribution. Check the repository's license and institutional permissions before assuming redistribution rights.*
