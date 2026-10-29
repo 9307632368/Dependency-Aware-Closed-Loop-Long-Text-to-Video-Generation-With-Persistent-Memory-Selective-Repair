@@ -40,22 +40,105 @@ The dissertation expands on this workflow with a **repair-aware dependency graph
 
 **Research proposal vs. prototype:** DAMF-CMG's full trainable memory-conditioning architecture is described in the dissertation. Confirm the actual implementation and experimental evidence in the code and output artifacts before treating that architectural proposal as a validated result.
 
-## Example generation
+## Sample output: long text-to-video generation
 
-**Example prompt** (from the earlier project README):
+**Input prompt**
 
 > A young woman enters a railway station in the morning. She checks the departure board. A train arrives and she runs toward platform three. Inside the train, she sits by the window and opens an old letter.
 
-**Scene breakdown**
+### Final stitched video
 
-1. The woman enters the railway station.
-2. She checks the departure board.
-3. A train arrives, and she runs toward platform three.
-4. She sits inside the train and opens the letter.
+Click the preview image to open the stitched video:
 
-[Watch the stitched video](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4) · [See a sample frame](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png)
+[![Preview frame of the generated long video](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png)](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4)
 
-The links above are retained from an earlier README draft. **Verify that these exact files are committed** before publishing this section; otherwise update the paths or remove the links.
+[Watch the final stitched video](outputs/runs/run_long_20260318_220725/stitched_video/stitched_video.mp4)
+
+### Scene-wise segmentation and frame outputs
+
+The example long prompt is divided into four video segments. Each scene below shows its text description, a link to the generated clip, and the frame gallery retained from the original README.
+
+#### Scene 01
+
+**Segmented text:** A young woman enters a railway station in the morning.
+
+[Watch Scene 01](outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/scene_001.mp4)
+
+**Generated frames:**
+
+<p>
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_000.png" width="180" alt="Scene 01, frame 000" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_001.png" width="180" alt="Scene 01, frame 001" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_002.png" width="180" alt="Scene 01, frame 002" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_003.png" width="180" alt="Scene 01, frame 003" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_004.png" width="180" alt="Scene 01, frame 004" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_005.png" width="180" alt="Scene 01, frame 005" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_006.png" width="180" alt="Scene 01, frame 006" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_007.png" width="180" alt="Scene 01, frame 007" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_001/attempt_00/frames/frame_008.png" width="180" alt="Scene 01, frame 008" />
+</p>
+
+#### Scene 02
+
+**Segmented text:** She checks the departure board.
+
+[Watch Scene 02](outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/scene_002.mp4)
+
+**Generated frames:**
+
+<p>
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_000.png" width="180" alt="Scene 02, frame 000" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_001.png" width="180" alt="Scene 02, frame 001" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_002.png" width="180" alt="Scene 02, frame 002" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_003.png" width="180" alt="Scene 02, frame 003" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_004.png" width="180" alt="Scene 02, frame 004" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_005.png" width="180" alt="Scene 02, frame 005" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_006.png" width="180" alt="Scene 02, frame 006" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_007.png" width="180" alt="Scene 02, frame 007" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_002/attempt_00/frames/frame_008.png" width="180" alt="Scene 02, frame 008" />
+</p>
+
+#### Scene 03
+
+**Segmented text:** A train arrives and she runs toward platform three.
+
+[Watch Scene 03](outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/scene_003.mp4)
+
+**Generated frames:**
+
+<p>
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_000.png" width="180" alt="Scene 03, frame 000" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_001.png" width="180" alt="Scene 03, frame 001" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_002.png" width="180" alt="Scene 03, frame 002" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_003.png" width="180" alt="Scene 03, frame 003" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_004.png" width="180" alt="Scene 03, frame 004" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_005.png" width="180" alt="Scene 03, frame 005" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_006.png" width="180" alt="Scene 03, frame 006" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_007.png" width="180" alt="Scene 03, frame 007" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_003/attempt_00/frames/frame_008.png" width="180" alt="Scene 03, frame 008" />
+</p>
+
+#### Scene 04
+
+**Segmented text:** Inside the train, she sits by the window and opens an old letter.
+
+[Watch Scene 04](outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/scene_004.mp4)
+
+**Generated frames:**
+
+<p>
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_000.png" width="180" alt="Scene 04, frame 000" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_001.png" width="180" alt="Scene 04, frame 001" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_002.png" width="180" alt="Scene 04, frame 002" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_003.png" width="180" alt="Scene 04, frame 003" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_004.png" width="180" alt="Scene 04, frame 004" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_005.png" width="180" alt="Scene 04, frame 005" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_006.png" width="180" alt="Scene 04, frame 006" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_007.png" width="180" alt="Scene 04, frame 007" />
+  <img src="outputs/runs/run_long_20260318_220725/generation/scene_004/attempt_00/frames/frame_008.png" width="180" alt="Scene 04, frame 008" />
+</p>
+
+> **Preview note:** Images are displayed from the files in `outputs/runs/`. If a preview does not appear on GitHub, check that its PNG exists in the remote repository at the exact linked path. The links and frames above are retained from the earlier README and have not been independently verified against the current remote repository.
 
 ## Repository structure
 
