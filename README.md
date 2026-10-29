@@ -15,17 +15,14 @@ This project explores a **scene-wise generation pipeline** that segments a long 
 ## System Workflow
 
 <p align="center">
-  <img src="assets/damf_cmg_framework.png" alt="Overall DAMF-CMG Framework" width="100%">
+  <img src="assets/damf_cmg_framework.png" alt="Overall DAMF-CMG framework" width="100%" />
 </p>
 
 <p align="center">
   <em>Figure 1. Overall DAMF-CMG framework for closed-loop long text-to-video generation with dependency-aware memory-guided denoising.</em>
 </p>
 
-The DAMF-CMG pipeline first segments a long prompt into transition-aware scenes, builds a repair-aware causal dependency graph, constructs constraint-aware scene packets, retrieves dependency-relevant memory, and performs memory-guided denoising through DAMF-U-Net. Generated scenes are then audited. Passed scenes update the committed memory bank, while failed scenes trigger selective repair and downstream regeneration.
-```
-
-The dissertation expands on this workflow with a **repair-aware dependency graph**, **audit-gated causal memory**, and a proposed **DAMF-U-Net** mechanism for conditioning denoising on relevant visual memories.
+The proposed framework organizes a long prompt into transition-aware scenes and a repair-aware dependency graph. It then prepares scene packets, retrieves relevant committed visual memory, and guides generation through the proposed DAMF-U-Net architecture. The scene audit determines whether an output is accepted into memory or sent for selective repair. The accompanying repository contains an experimental scene-wise generation prototype; the complete trainable DAMF-U-Net design is described in the dissertation rather than claimed as fully implemented here.
 
 ## Main ideas
 
@@ -138,6 +135,25 @@ The example long prompt is divided into four video segments. Each scene below sh
 
 > **Preview note:** Images are displayed from the files in `outputs/runs/`. If a preview does not appear on GitHub, check that its PNG exists in the remote repository at the exact linked path. The links and frames above are retained from the earlier README and have not been independently verified against the current remote repository.
 
+## Additional visual example: underwater teddy bear and panda
+
+The following example illustrates a four-part text prompt with representative frames for each scene. It is included as a **visual example**; the image alone is not a quantitative evaluation of temporal consistency.
+
+**Input prompt:**
+
+> A teddy bear is swimming in the ocean. The teddy bear goes under water. The teddy bear keeps swimming under water with colourful fishes. Panda bear inside the water with ball.
+
+**Scene descriptions:**
+
+1. **T1:** A teddy bear is swimming in the ocean.
+2. **T2:** The teddy bear goes under water.
+3. **T3:** The teddy bear keeps swimming under water with colourful fishes.
+4. **T4:** Panda bear inside the water with ball.
+
+![Four scene groups showing a teddy bear swimming in the ocean and underwater with fish, followed by a panda underwater with a ball](assets/teddy_bear_underwater_scene_comparison.png)
+
+*Figure: Representative frames from the four prompt segments (T1–T4). The panda in T4 is a new subject explicitly introduced by the prompt.*
+
 ## Repository structure
 
 ```text
@@ -148,6 +164,7 @@ The example long prompt is divided into four video segments. Each scene below sh
 ├── scripts/             # Pipeline entry points and utilities
 ├── src/                 # Core implementation modules
 ├── reports/             # M.Tech dissertation PDF
+├── assets/              # Research framework and sample output figures
 ├── README.md            # Project overview and usage
 └── requirements.txt     # Python package dependencies
 ```
